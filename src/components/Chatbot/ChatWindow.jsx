@@ -4,14 +4,15 @@ import MessageBubble from "./MessageBubble";
 import "./chatbot.css";
 import Auth from "../../utils/auth";
 
+const baseMessages = [
+  {
+    role: "assistant",
+    content: "Hi! Ask me about workouts, recovery, or nutrition.",
+  },
+];
+
 const ChatWindow = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const baseMessages = [
-    {
-      role: "assistant",
-      content: "Hi! Ask me about workouts, recovery, or nutrition.",
-    },
-  ];
   const [messages, setMessages] = useState(baseMessages);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
