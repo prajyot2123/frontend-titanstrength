@@ -81,7 +81,8 @@ const ChatWindow = () => {
 
     try {
       const token = Auth.loggedIn() ? Auth.getToken() : null;
-      const response = await fetch("/api/chat", {
+      const apiBase = process.env.REACT_APP_API_URL || "";
+      const response = await fetch(`${apiBase}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
