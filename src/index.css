@@ -1,0 +1,621 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  --main-color: #22d39b;
+  --accent-strong: #0e7f60;
+  --accent-warm: #f7b733;
+  --ink: #0f1f18;
+  --muted: #5f6f66;
+  --surface: #ffffff;
+  --surface-strong: #f7faf8;
+  --surface-alt: #eef4f1;
+  --shadow-soft: 0 20px 50px rgba(14, 28, 21, 0.12);
+  --shadow-strong: 0 32px 80px rgba(14, 28, 21, 0.2);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background: var(--surface-strong);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* ---------------------------1. header--------------------------------- */
+.navbar {
+  padding: 18px 24px;
+}
+
+.header-shell {
+  position: relative;
+  z-index: 10;
+}
+
+.header-hero {
+  background: transparent;
+}
+
+.navbar.bg-dark {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: var(--ink);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(12, 28, 22, 0.12);
+}
+
+.navbar.bg-dark .nav-link,
+.navbar.bg-dark .nav-pill {
+  color: var(--ink) !important;
+}
+
+.navbar.bg-dark .brand:hover {
+  color: var(--ink);
+}
+
+.navbar.bg-dark .nav-link:hover,
+.navbar.bg-dark .nav-pill:hover {
+  color: var(--ink) !important;
+  background: rgba(15, 31, 24, 0.12);
+  box-shadow: 0 8px 18px rgba(12, 28, 22, 0.12);
+}
+
+.navbar.bg-dark .nav-pill {
+  background: rgba(15, 31, 24, 0.06);
+  border-color: rgba(15, 31, 24, 0.12);
+}
+
+.navbar.bg-dark .nav-pill.active {
+  color: #ffffff !important;
+}
+.heart-icon {
+  height: 24px;
+  margin-right: 0;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(34, 211, 155, 0.18);
+  margin-right: 10px;
+  box-shadow: inset 0 0 0 1px rgba(34, 211, 155, 0.35);
+}
+
+.brand {
+  font-family: "Fraunces", "Trebuchet MS", serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: inherit;
+}
+
+.brand-logged {
+  margin-left: 5px;
+  font-size: 22px;
+}
+
+.brand-new {
+  margin-top: 16px;
+}
+
+.brand-text {
+  color: black;
+}
+
+.brand-text:hover {
+  color: black;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='whitesmoke' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.nav-link {
+  text-align: right;
+  margin-right: 5px;
+  font-weight: 600;
+  color: #ffffff;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--main-color);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--main-color);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.header-actions {
+  gap: 10px;
+}
+
+.nav-pill {
+  padding: 8px 16px !important;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.nav-pill::after {
+  display: none;
+}
+
+.nav-pill:hover {
+  transform: translateY(-1px);
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.nav-pill.active {
+  background: linear-gradient(135deg, rgba(34, 211, 155, 0.4), rgba(14, 127, 96, 0.6));
+  border-color: rgba(34, 211, 155, 0.5);
+  color: #ffffff;
+}
+
+.nav-ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* --------------------------------- 2. home page---------------------------------  */
+.homepage {
+  background-image: url("./assets/images/run.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+  color: #f5fff9;
+}
+
+.homepage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(8, 18, 14, 0.85), rgba(8, 18, 14, 0.35));
+}
+
+.home-hero {
+  position: relative;
+  z-index: 1;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 12vh;
+}
+
+.home {
+  max-width: 560px;
+  text-align: left;
+  padding: 0 6vw;
+}
+
+.home-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: rgba(245, 255, 249, 0.8);
+  margin-bottom: 10px;
+}
+
+.home-title {
+  font-family: "Fraunces", "Trebuchet MS", serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  margin-bottom: 12px;
+}
+
+.home-text {
+  margin: 10px 0 20px 0;
+  font-size: 16px;
+  color: rgba(245, 255, 249, 0.85);
+}
+
+.home-panels {
+  position: relative;
+  z-index: 1;
+  margin: -40px auto 0 auto;
+  padding: 0 6vw 60px 6vw;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.home-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(15, 31, 24, 0.08);
+  color: var(--ink);
+  backdrop-filter: blur(8px);
+}
+
+.home-panel h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.home-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.home-btn,
+.signup-btn,
+.submit-btn {
+  border: none;
+  outline: none;
+  width: 210px;
+  height: 46px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--main-color), var(--accent-strong));
+  color: #0b1712;
+  font-weight: 700;
+  box-shadow: 0 12px 28px rgba(10, 25, 19, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-btn:hover,
+.signup-btn:hover,
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(10, 25, 19, 0.4);
+}
+
+/* 3. --------------------------------- sign up and login page-------------------------------- */
+.signup {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #f7fbf9, #e8f1ec);
+  position: relative;
+}
+
+.signup::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(15, 31, 24, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.signup-form {
+  width: min(380px, 92vw);
+  margin: 30px 0 90px 0;
+  padding: 26px 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(15, 31, 24, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.signup-form label {
+  text-align: left;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.signup-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 31, 24, 0.12);
+  background: #ffffff;
+}
+
+.btn-div {
+  margin: 18px auto;
+}
+
+.signup-btn {
+  width: 100%;
+  height: 48px;
+}
+
+.link-btn {
+  color: var(--muted);
+}
+
+.err-message {
+  color: #d93f3f;
+}
+
+/* --------------------------------- 4. history page---------------------------------   */
+.history {
+  min-height: 100vh;
+  background: var(--surface-strong);
+}
+.title {
+  margin: 30px auto 20px auto;
+  font-weight: 700;
+  font-family: "Fraunces", "Trebuchet MS", serif;
+  color: var(--ink);
+}
+
+.title:after {
+  content: ""; /* This is necessary for the pseudo element to work. */
+  display: block; /* This will put the pseudo element on its own line. */
+  margin: 0 auto; /* This will center the border. */
+  width: 35px; /* length of border */
+  padding-top: 3px; /* This creates some space between the element and the border. */
+  border-bottom: 2px solid var(--main-color);
+}
+
+.history-text {
+  margin: 20px auto;
+  color: var(--muted);
+}
+
+.history-data {
+  margin-bottom: 20px;
+  width: min(820px, 92vw);
+}
+
+.history-div {
+  margin: 16px 0;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+}
+
+.date {
+  min-width: 70px;
+  margin-right: 16px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.history-card {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  color: #0b1712;
+  position: relative;
+  transform: none;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(15, 31, 24, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.history-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+}
+
+.history-icon {
+  height: 38px;
+  margin-right: 14px;
+}
+
+.cardio-title,
+.cardio-btn {
+  background: linear-gradient(135deg, rgba(31, 214, 162, 0.25), rgba(31, 214, 162, 0.15));
+  color: #0b1712;
+}
+
+.resistance-title,
+.resistance-btn {
+  background: linear-gradient(135deg, rgba(120, 188, 255, 0.3), rgba(120, 188, 255, 0.16));
+  color: #0b1712;
+}
+
+.history-name {
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.history-index {
+  margin: 0 auto;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.show-btn {
+  margin: 20px auto;
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent-strong);
+}
+
+.show-btn:hover {
+  font-weight: 700;
+}
+
+/* --------------------------------- 5.exercise page---------------------------------   */
+.exercise {
+  min-height: 100vh;
+  background: var(--surface-strong);
+  padding-bottom: 60px;
+}
+.exercise-icon {
+  height: 40px;
+}
+
+.cardio-btn,
+.resistance-btn {
+  width: 190px;
+  height: 190px;
+  margin: 20px auto;
+  border-radius: 22px;
+  font-weight: 700;
+  font-size: 20px;
+  border: 1px solid rgba(15, 31, 24, 0.1);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardio-btn:hover,
+.resistance-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ------------------------------- 6. cardio and resistance page--------------------------------*/
+.exercise-form-icon {
+  height: 50px;
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.cardio,
+.single-cardio {
+  background-image: url("./assets/images/running.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+  position: relative;
+}
+
+.resistance,
+.single-resistance {
+  background-image: url("./assets/images/dumbell.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+  position: relative;
+}
+
+.cardio::before,
+.resistance::before,
+.single-cardio::before,
+.single-resistance::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(7, 16, 12, 0.8), rgba(7, 16, 12, 0.4));
+}
+
+.cardio-form,
+.resistance-form,
+.cardio-div,
+.resistance-div {
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  width: min(360px, 92vw);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  background: rgba(8, 18, 14, 0.55);
+  position: relative;
+  z-index: 1;
+}
+
+.cardio-form label,
+.resistance-form label {
+  font-weight: 600;
+  color: #e5fff4;
+}
+
+.cardio-form input,
+.resistance-form input {
+  margin-bottom: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.message {
+  font-weight: bold;
+  color: yellow;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ---------------------------------7.single exercise page--------------------------------- */
+.cardio-div,
+.resistance-div {
+  width: min(360px, 92vw);
+}
+
+.single-exercise span {
+  color: #f7d774;
+}
+
+.delete-btn {
+  border: none;
+  border-radius: 6px;
+  background-color: red;
+  color: whitesmoke;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 10px auto;
+}
+
+.delete-btn:hover {
+  background-color: rgb(211, 5, 5);
+}
+
+.react-confirm-alert-overlay {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.react-confirm-alert-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 260px;
+  padding: 20px 10px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.react-confirm-alert-body h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.react-confirm-alert-button-group button{
+  font-weight: bold;
+  font-size: 14px;
+}
+.react-confirm-alert-button-group button:last-child {
+  background-color: red;
+}
