@@ -28,7 +28,7 @@ export default function Header() {
             <span className="brand-mark">
               <img alt="heart" src={heart} className="heart-icon" />
             </span>
-            FitTrack
+            Titan Strength
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
@@ -65,7 +65,7 @@ export default function Header() {
           <span className="brand-mark">
             <img alt="heart" src={heart} className="heart-icon" />
           </span>
-          FitTrack
+          Titan Strength
         </Navbar.Brand>
       )}
     </Navbar>
